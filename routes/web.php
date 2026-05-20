@@ -13,3 +13,5 @@ Route::post('/aws-services',[AwsServiceController::class, 'store'])->name('aws-s
 Route::get('/', [QuizController::class, 'index'])->name('home');
 Route::get('/quiz', [QuizController::class, 'show'])->name('quiz.show');
 Route::post('/quiz/answer', [QuizController::class, 'answer'])->name('quiz.answer');
+
+Route::get('/quiz/results', [QuizController::class, 'results'])->name('quiz.results');

@@ -17,7 +17,7 @@ class QuizResult extends Model
         return $this->belongsTo(AwsService::class, 'correct_service_id');
     }
 
-    public function selected_service_id()
+    public function selectedService()
     {
         return $this->belongsTo(AwsService::class, 'selected_service_id');
     }

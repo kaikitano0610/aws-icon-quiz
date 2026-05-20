@@ -59,4 +59,22 @@ class QuizController extends Controller
             'answer' => $answer
         ]);
     }
+
+    public function results()
+    {
+        $results = QuizResult::with(['correctService', 'selectedService'])
+            ->latest()
+            ->get();
+
+        $total = $results->count();
+        $correctCount = $results->where('is_correct', true)->count();
+        $rate = $total > 0 ? round($correctCount / $total * 100, 1) : 0;
+
+        return view('quiz.results', [
+            'results' => $results,
+            'total' => $total,
+            'correctCount' => $correctCount,
+            'rate' => $rate,
+        ]);
+    }
 }
