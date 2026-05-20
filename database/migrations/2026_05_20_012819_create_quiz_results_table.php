@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('quiz_results', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('correct-service-id')->constrained('aws_services');
-            $table->foreignId('select-service-id')->constrained('aws_services');
+            $table->foreignId('correct_service_id')->constrained('aws_services');
+            $table->foreignId('selected_service_id')->constrained('aws_services');
             $table->boolean('is_correct');
             $table->timestamps();
         });
