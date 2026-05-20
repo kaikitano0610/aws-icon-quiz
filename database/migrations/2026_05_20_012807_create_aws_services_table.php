@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quiz_results', function (Blueprint $table) {
+        Schema::create('aws_services', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('category')->nullable();
+            $table->string('icon_path');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quiz_results');
+        Schema::dropIfExists('aws_services');
     }
 };

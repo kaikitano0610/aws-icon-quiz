@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aws_services', function (Blueprint $table) {
+        Schema::create('quiz_results', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('correct-service-id')->constrained('aws_services');
+            $table->foreignId('select-service-id')->constrained('aws_services');
+            $table->boolean('is_correct');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aws_services');
+        Schema::dropIfExists('quiz_results');
     }
 };
